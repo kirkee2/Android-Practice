@@ -44,14 +44,12 @@ public class KakaoSignupActivity extends Activity{
                 if (result == ErrorCode.CLIENT_ERROR_CODE) {
                     finish();
                 } else {
-                    new WebHook().execute("4",null,null);
                     redirectLoginActivity();
                 }
             }
 
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
-                new WebHook().execute("5",null,null);
 
                 redirectLoginActivity();
             }
@@ -61,10 +59,6 @@ public class KakaoSignupActivity extends Activity{
 
             @Override
             public void onSuccess(UserProfile userProfile) {  //성공 시 userProfile 형태로 반환
-
-
-                new WebHook().execute("5",null,null);
-                new WebHook().execute("id : " + userProfile.getId() +"userProfile " + userProfile.toString(),null,null);
 
                 redirectMainActivity(); // 로그인 성공시 MainActivity로
             }

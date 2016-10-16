@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
         Session.getCurrentSession().addCallback(callback);
         if (!Session.getCurrentSession().checkAndImplicitOpen()) {
             setContentView(R.layout.activity_login);
-            new WebHook().execute("1",null,null);
         }
     }
 
@@ -46,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onSessionOpened() {
-            new WebHook().execute("2",null,null);
             redirectSignupActivity();  // 세션 연결성공 시 redirectSignupActivity() 호출
         }
 
@@ -55,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
-            new WebHook().execute("3",null,null);
             setContentView(R.layout.activity_login); // 세션 연결이 실패했을때
         }                                            // 로그인화면을 다시 불러옴
     }

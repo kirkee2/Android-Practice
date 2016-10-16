@@ -1,4 +1,4 @@
-package com.example.lkj.seoul;
+package com.example.lkj.seoul.Kakao_Login;
 
 import android.app.Activity;
 import android.app.Application;

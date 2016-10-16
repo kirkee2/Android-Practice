@@ -1,4 +1,4 @@
-package com.example.lkj.seoul;
+package com.example.lkj.seoul.Kakao_Login;
 
 /**
  * Created by hp on 2016-01-26.
@@ -7,9 +7,9 @@ package com.example.lkj.seoul;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.kakao.auth.ApiResponseCallback;
+import com.example.lkj.seoul.Connection.WebHook;
+import com.example.lkj.seoul.MainActivity;
 import com.kakao.auth.ErrorCode;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
@@ -44,12 +44,15 @@ public class KakaoSignupActivity extends Activity{
                 if (result == ErrorCode.CLIENT_ERROR_CODE) {
                     finish();
                 } else {
+                    new WebHook().execute("4",null,null);
                     redirectLoginActivity();
                 }
             }
 
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
+                new WebHook().execute("5",null,null);
+
                 redirectLoginActivity();
             }
 
@@ -58,7 +61,11 @@ public class KakaoSignupActivity extends Activity{
 
             @Override
             public void onSuccess(UserProfile userProfile) {  //성공 시 userProfile 형태로 반환
-                Logger.d("UserProfile : " + userProfile);
+
+
+                new WebHook().execute("5",null,null);
+                new WebHook().execute("id : " + userProfile.getId() +"userProfile " + userProfile.toString(),null,null);
+
                 redirectMainActivity(); // 로그인 성공시 MainActivity로
             }
         });

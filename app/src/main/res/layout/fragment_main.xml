@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFE0F7FA">
+
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="아이콘"
+            android:id="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/search"
+            android:layout_alignBottom="@+id/search"
+            android:textSize="8dp" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:id="@+id/search"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:textIsSelectable="false"
+            android:inputType="text"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/button"
+            android:layout_toEndOf="@+id/button"
+            android:hint="검색어를 입력해주세요."
+            android:textSize="15dp"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:lines="1"
+            />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="검색"
+            android:id="@+id/searchButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="#ffffff"
+            android:layout_toRightOf="@+id/search"
+            android:layout_alignTop="@+id/search"
+            android:layout_alignBottom="@+id/search"
+            android:textColor="#000000" />
+        <!--android:shadowRadius="2"
+        android:shadowColor="#FF6A6969"
+        android:shadowDx="2"
+        android:shadowDy="4"
+        -->
+
+
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:text="필터"
+            android:id="@+id/btWish"
+            android:textSize="8dp"
+            android:layout_alignTop="@+id/searchButton"
+            android:layout_toRightOf="@+id/searchButton"
+            android:layout_toEndOf="@+id/searchButton" />
+    </RelativeLayout>
+
+</LinearLayout>

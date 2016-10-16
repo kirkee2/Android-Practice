@@ -6,13 +6,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.lkj.seoul.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#B3E5FC"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view">
+
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/pager"
+        android:layout_alignStart="@+id/pager"
+        android:id="@+id/view">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabBackground="@drawable/tab_color_selector"
+            app:tabGravity="fill"/>
+    </android.support.design.widget.AppBarLayout>
+
+
+
 
 </RelativeLayout>

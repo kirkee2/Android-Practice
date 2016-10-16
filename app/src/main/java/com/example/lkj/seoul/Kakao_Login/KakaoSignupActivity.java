@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.lkj.seoul.Connection.WebHook;
 import com.example.lkj.seoul.MainActivity;
 import com.kakao.auth.ErrorCode;
 import com.kakao.network.ErrorResult;

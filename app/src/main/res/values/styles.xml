@@ -13,14 +13,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppTheme.NoActionBar">
+
+
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:colorBackground">@color/background</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#E1F5FE</item>
-        <item name="colorAccent">#B24D43FF</item>
+        <item name="colorPrimary">#B3E5FC</item>
+        <item name="colorPrimaryDark">#B3E5FC</item>
+        <item name="colorAccent">#B2FF0000</item>
     </style>
 
 </resources>

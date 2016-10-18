@@ -1,38 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.lkj.seoul.MainActivity">
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".MainActivity">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <fragment
+        android:layout_weight="91"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/view">
+        android:layout_height="0dp"
+        android:name="com.example.lkj.seoul.Fragment.MainFragment"
+        android:id="@+id/MainPagefragment"/>
 
-    </android.support.v4.view.ViewPager>
-
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/pager"
-        android:layout_alignStart="@+id/pager"
-        android:id="@+id/view">
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabMode="fixed"
-            app:tabBackground="@drawable/tab_color_selector"
-            app:tabGravity="fill"/>
-    </android.support.design.widget.AppBarLayout>
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:weightSum="100"
+        android:id="@+id/linearLayout">
 
 
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btHome"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_home_black_48dp"
+            android:background="#B3E5FC" />
 
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btCommuntiy"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_group_black_48dp" />
 
-</RelativeLayout>
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btWishlist"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_person_black_48dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btSetting"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_settings_black_48dp" />
+    </LinearLayout>
+
+</LinearLayout>

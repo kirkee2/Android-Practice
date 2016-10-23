@@ -1,46 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.lkj.seoul.Fragment.SettingFragment">
+    android:weightSum="100">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="#81D4FA"
+        android:orientation="horizontal"
+        android:weightSum="100">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Setting"
-        android:id="@+id/textView4"
-        android:textColor="#000000"
-        android:textSize="100sp"
-        android:layout_gravity="center_horizontal|top" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="유저 정보 보기"
-        android:id="@+id/userInfo" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:background="#81D4FA"
+            android:src="@mipmap/ic_launcher" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="토큰 정보 보기"
-        android:id="@+id/userTokenInfo" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그아웃"
-        android:id="@+id/logOut"
-        android:layout_gravity="left|bottom" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:background="#81D4FA"
+            android:orientation="vertical"
+            android:weightSum="100">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="탈퇴"
-        android:id="@+id/unlink" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="15"
+                android:background="#81D4FA" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="70"
+                android:background="#81D4FA"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="90"
+                    android:background="#FFFFFFFF"
+                    android:hint="검색어를 입력해주세요."
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+
+                <ImageButton
+                    android:id="@+id/searchButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:background="#FFFFFFFF"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_search_black_18dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="15"
+                android:background="#81D4FA" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:background="#81D4FA"
+            android:src="@drawable/ic_favorite_black_36dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:weightSum="100"
+        android:layout_weight="5">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="25"
+            android:layout_height="wrap_content"
+            android:text="유저 정보 보기"
+            android:id="@+id/userInfo" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="25"
+            android:layout_height="wrap_content"
+            android:text="토큰 정보 보기"
+            android:id="@+id/userTokenInfo" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="25"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
+            android:id="@+id/logOut"
+            android:layout_gravity="left|bottom" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="25"
+            android:layout_height="wrap_content"
+            android:text="탈퇴"
+            android:id="@+id/unlink" />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="87"/>
 
 </LinearLayout>

@@ -6,11 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,10 @@ import com.example.lkj.seoul.Connection.WebHook;
 import com.example.lkj.seoul.KakaoInfoExample;
 import com.example.lkj.seoul.Kakao_Login.KakaoSignupActivity;
 import com.example.lkj.seoul.Kakao_Login.LoginActivity;
+import com.example.lkj.seoul.ListViewAdapter.MainAdapter;
+import com.example.lkj.seoul.ListViewAdapter.MainList;
+import com.example.lkj.seoul.ListViewAdapter.SettingAdapter;
+import com.example.lkj.seoul.ListViewAdapter.SettingList;
 import com.example.lkj.seoul.R;
 import com.kakao.auth.ApiResponseCallback;
 import com.kakao.auth.AuthService;
@@ -31,6 +37,8 @@ import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 
+import java.util.ArrayList;
+
 
 public class SettingFragment extends Fragment {
 
@@ -39,7 +47,11 @@ public class SettingFragment extends Fragment {
     private Button logOut;
     private Button unlink;
 
-    public void SettingFragment() {
+    private ListView listView;
+    private ArrayList<SettingList> settingLists;
+    private SettingAdapter adapter;
+
+    public SettingFragment() {
 
     }
 
@@ -51,6 +63,31 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
+
+        settingLists = new ArrayList<SettingList>();
+
+        settingLists.clear();
+
+        listView = (ListView) view.findViewById(R.id.listView);
+
+        settingLists.add(new SettingList("유저 정보"));
+        settingLists.add(new SettingList("사용 설명"));
+        settingLists.add(new SettingList("로그인 상태"));
+        settingLists.add(new SettingList("푸쉬 알람"));
+        settingLists.add(new SettingList("버전 정보"));
+
+
+        adapter = new SettingAdapter(getActivity(), R.layout.setting_item, settingLists);
+
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(),settingLists.get(position).getName(),Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         userInfo = (Button) view.findViewById(R.id.userInfo);
         userTokenInfo = (Button) view.findViewById(R.id.userTokenInfo);

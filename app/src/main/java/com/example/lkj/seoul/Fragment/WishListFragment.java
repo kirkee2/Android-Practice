@@ -1,7 +1,12 @@
 package com.example.lkj.seoul.Fragment;
 
-import android.app.Fragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +24,12 @@ import java.util.ArrayList;
 
 public class WishListFragment extends Fragment {
 
-    private ListView listView;
-    private ArrayList<MainList> mainLists;
-    private MainAdapter adapter;
+    private FragmentPagerAdapter adapterViewPager;
+    private TabLayout tabLayout;
+    private ViewPager pager = null;
 
-    public void WishListFragment() {
+
+    public WishListFragment() {
 
     }
 
@@ -37,32 +43,73 @@ public class WishListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_wishlist, container, false);
 
 
-        mainLists = new ArrayList<MainList>();
+        pager = (ViewPager) view.findViewById(R.id.pager);
 
-        listView = (ListView) view.findViewById(R.id.listView);
+        adapterViewPager = new MyPagerAdapter(getActivity().getSupportFragmentManager());
+        pager.setAdapter(adapterViewPager);
 
-        new WebHook().execute(listView.toString(),null,null);
+        adapterViewPager =new MyPagerAdapter(getActivity().getSupportFragmentManager());
+        new setAdapterTask().execute();
 
-        adapter = new MainAdapter(getActivity(), R.layout.main_item, mainLists);
-
-        mainLists.clear();
-
-        for(int i = 0 ; i <10 ; i++){
-            mainLists.add(i, new MainList("",i+""));
-        }
-
-        adapter = new MainAdapter(getActivity(), R.layout.main_item, mainLists);
-
-
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(),mainLists.get(position).getName(),Toast.LENGTH_LONG).show();
-
-            }
-        });
+        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(pager);
+        tabLayout.setSelectedTabIndicatorColor(0xFFFF0000);
+        tabLayout.setSelectedTabIndicatorHeight(50);
 
         return view;
+    }
+
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+        private static int NUM_ITEMS = 2;
+
+
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        // Returns the fragment to display for that page
+        @Override
+        public android.support.v4.app.Fragment getItem(int position) {
+            switch (position) {
+                case 0: // Fragment # 0 - This will show FirstFragment
+                    return new TmpFragment1();
+                case 1: // Fragment # 0 - This will show FirstFragment different title
+                    return new TmpFragment2();
+                default:
+                    return null;
+            }
+        }
+
+
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            if(position == 0){
+                return "Main";
+            }else if(position == 1){
+                return "Setting";
+            }else{
+                return null;
+            }
+        }
+    }
+
+    private class setAdapterTask extends AsyncTask<Void,Void,Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            pager.setAdapter(adapterViewPager);
+        }
     }
 }

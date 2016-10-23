@@ -5,5 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="background">#FFFFFF </color>
     <color name="tab_background_unselected">#FFFFFF</color>
-    <color name="tab_background_selected">#8CB3E5FC</color>
+    <color name="tab_background_selected">#FFFFFF</color>
 </resources>

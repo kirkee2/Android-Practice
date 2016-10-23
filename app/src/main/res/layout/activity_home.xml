@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="100">
+    android:weightSum="100"
+    tools:context=".MainActivity">
 
 
     <LinearLayout
@@ -94,7 +96,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="4.5"
         android:weightSum="100"
         android:orientation="horizontal">
 
@@ -144,6 +146,53 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="87"/>
+        android:layout_weight="79.5"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:weightSum="100"
+        android:id="@+id/linearLayout">
+
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btHome"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_home_black_48dp"
+            android:background="#B3E5FC" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btCommuntiy"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_group_black_48dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btWishlist"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_person_black_48dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:id="@+id/btSetting"
+            android:onClick="changeFragment"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/ic_settings_black_48dp" />
+    </LinearLayout>
 
 </LinearLayout>
